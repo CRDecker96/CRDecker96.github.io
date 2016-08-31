@@ -25,5 +25,4 @@ function draw() {
   stroke(201);
   line(50, 100, 100, 0); 
   line(30, 200, 2000, 500); 
-  
 }
