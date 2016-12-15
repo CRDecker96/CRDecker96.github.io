@@ -1,13 +1,25 @@
-var r;
-var g;
-var b; 
+var ellipse = 1;
+var Xcord = 200;
+var Ycord = 200;
 
 
-function set up () {
-  r = random (256);
-  g = random (256);
-  b = random (256); 
-  createCanvas ( 1000, 1000);
-  background (r,g,b);
-  
+function setup();{
+createCanvas(600,600);
+background('rgb(0,255,0)');
+
+}
+function Draw(); {
+  fill(51);
+  stroke('#222222');
+  strokeWeight(6);
+  ellipse(var Xcord, var Ycord);
+
+  if (mousePressed(); var Xcord, var Ycord)
+  {create(); ellipse(random var Xcord, var Ycord);
+  }
+  x++
+}
+
+
+
 }
