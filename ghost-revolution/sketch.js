@@ -18,6 +18,7 @@ var ghostHatch = 1;
 var fireballHatch = 1;
 var ghostSound, fireballSound, bgMusic;
 var musicRate;
+var bullets = [];
 
 function preload()
 {
@@ -123,11 +124,25 @@ function draw() {
     textSize(24);
     text("Score: " + score, 30, 50);
 
-    ellapsedTi me = millis()/1000 - startTime;
+    ellapsedTime = millis()/1000 - startTime;
     text("Time Ellapsed: " + floor(ellapsedTime), 30, 80);
-    text(ghostHatch + ":" +ghostCounter, 30, 100);
+    // text(ghostHatch + ":" +ghostCounter, 30, 100);
     pop();
     //display time in seconds
+
+
+    if (keyIsDown(LEFT_ARROW)) {
+      if (pacman.direction == 'stopped') {
+        pacman.direction = 'left';
+        pacman.speed = 6;
+      }
+    } else if (keyIsDown(RIGHT_ARROW)) {
+      if (pacman.direction == 'stopped') {
+        pacman.direction = 'right';
+        pacman.speed = 6;
+      }
+    }
+
 
 
 
@@ -174,7 +189,7 @@ function draw() {
 
         // check if pacman is touching ghost
         var d1 = dist(ghosts[i].xpos, ghosts[i].ypos, pacman.xpos, pacman.ypos);
-        if(d1 < 50)
+        if(d1 < 21+48)
         {
           //remove live
           lives--;
@@ -203,7 +218,7 @@ function draw() {
         // check if pacman is touching FB
         var d2 = dist(fireball[j].xpos, fireball[j].ypos, pacman.xpos, pacman.ypos);
         // TODO: REPLACE 25 WITH RELATIVE DISTANCE (ie fireball.radis + pacman.radis)
-        if(d2 < 25)
+        if(d2 < (30 + 48))
         {
           // remove FB
           fireball.splice(j, 1);
@@ -213,6 +228,16 @@ function draw() {
           fireballSound.play();
 
         }
+      }
+    }
+
+    for (var i = 0; i < bullets.length; i++) {
+      var hit;
+      hit = bullets[i].shoot(ghosts);
+      if (hit) {
+        bullets.splice(i, 1);
+        score++;
+        fireballSound.play();
       }
     }
 
@@ -283,27 +308,36 @@ function startGame()
 
 }
 
-function keyPressed()
-{
+// function keyDown()
+// {
+//   if (keyCode === LEFT_ARROW || keyCode === RIGHT_ARROW) {
+//     pacman.speed = 6;
+//     // pacman.direction = 'moving';
+//
+//   }
+// }
+//   // if the right arrow was pressed
+//   if(keyCode == RIGHT_ARROW)
+//   {
+//     // change pacman's direction property
+//     pacmanRight2.direction = 'right';
+//   }
+//
+//   // if the left arrow was pressed
+//   if(keyCode == LEFT_ARROW)
+//   {
+//     // change pacman's direction property
+//     pacmanLeft1.direction = 'left';
+//     }
 
 
-  // if the right arrow was pressed
-  if(keyCode == RIGHT_ARROW)
-  {
-    // change pacman's direction property
-    pacmanRight2.direction = 'right';
+function keyPressed(){
+  if (keyCode === SHIFT) {
+    bullets.push( new Bullet(pacman.xpos, pacman.ypos, fireballImage) );
   }
-
-  // if the left arrow was pressed
-  if(keyCode == LEFT_ARROW)
-  {
-    // change pacman's direction property
-    pacmanLeft1.direction = 'left';
-    }
-
+}
 
 function keyReleased() {
-  pacmanCenter3.direction = "stopped";
-
-}
+  pacman.direction = "stopped";
+  pacman.speed = 0;
 }

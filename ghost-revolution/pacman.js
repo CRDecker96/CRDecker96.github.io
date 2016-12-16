@@ -31,7 +31,8 @@ Pacman.prototype.display = function()
   imageMode(CENTER);
 
   // if pacman is facing right
-  if( keyCode === RIGHT_ARROW )
+  // if( keyCode === RIGHT_ARROW )
+  if( this.direction == 'right' )
   {
     // display the correct sprite image based on the eyeCounter
 
@@ -41,11 +42,12 @@ Pacman.prototype.display = function()
     // move pacman to the right
     this.xpos = this.xpos + this.speed;
 
-    this.speed = this.speed * 0.05;
+    this.speed += this.speed * 0.01;
   }
 
   // if pacman is facing left
-  if( keyCode === LEFT_ARROW )
+  // if( keyCode === LEFT_ARROW )
+  else if( this.direction == 'left' )
   {
 
         image(pacmanLeft1, this.xpos, this.ypos);
@@ -53,15 +55,15 @@ Pacman.prototype.display = function()
 
     // move pacman to the left
     this.xpos = this.xpos - this.speed;
-    this.speed = this.speed * 0.05;
+    this.speed += this.speed * 0.01;
   }
 
 
   // if pacman is just starting out and hasn't started moving yet
-  if(this.direction == 'stopped')
+  else if(this.direction == 'stopped')
   {
     image(pacmanCenter3, this.xpos, this.ypos);
-    this.speed = 6;
+    // this.speed = 0;
   }
 
   // wrap pacman if pacman reaches the edge of the screen
@@ -73,4 +75,5 @@ Pacman.prototype.display = function()
   {
     this.xpos = width;
   }
+  pop();
 }
