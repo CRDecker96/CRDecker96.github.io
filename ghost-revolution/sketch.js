@@ -102,7 +102,7 @@ function draw() {
     strokeWeight(1.75);
     stroke(255, 204, 0);
     textSize(26)
-    text(" [Left] & [Right] arrow keys to move \n [A key] shoot fire \n [DOWN] arrow to stop \n Objective: Shoot fire balls and destroy the ghosts!", windowWidth/4, windowHeight/2+100);
+    text(" [Left] & [Right] arrow keys to move \n [Shift] shoot fire \n [DOWN] arrow to stop \n Objective: Shoot fire balls and destroy the ghosts!", windowWidth/4, windowHeight/2+100);
     pop();
 
   }
