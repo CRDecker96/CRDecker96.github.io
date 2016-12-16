@@ -15,7 +15,6 @@ function Fireball(initX,initY,delta,image)
 Fireball.prototype.display = function () {
   push();
   translate(this.xpos, this.ypos);
-  rotate(PI);
   image(this.image, 0, 0, this.objWidth, this.objHeight);
   this.updatePosY();
 

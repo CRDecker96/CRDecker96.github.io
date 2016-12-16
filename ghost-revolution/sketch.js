@@ -39,7 +39,7 @@ function preload()
 
   // load in heart and fireballs image
   heart = loadImage('heart.png');
-  fireballImage = loadImage('FireBall.png');
+  fireballImage = loadImage('Cherry.png');
   backgroundImage = loadImage('PacmanBackground.png');
 
   ghostSound = loadSound('./assets/ghostSound.mp3');
