@@ -12,6 +12,8 @@ function PACMAN (initX, initY) {
   this.targetTime = 2;
   this.direction = 0;
   this.mouthDirection = 0;
+  this.eyeX = 0;
+  this.eyeY = 0;
 
 
 }
@@ -25,14 +27,13 @@ PACMAN.prototype.drawPacMan = function (){
   this.timeCheck();
   // this.rotateMouth();
 
-
-
   push();
   translate(this.posX, this.posY);
   fill(random(0,256),random(0,256),random(0,256)); //fill color random
   strokeWeight(4); //stroke wieght around PACMAN
   stroke(51); //stroke color of PACMAN
   arc(0, 0, this.PacmanDia , this.PacmanDia, PI*(1/6), PI*(-1/6));
+  elipse(this.PacmanDia/0.05 + 10, this.PacmanDia/0.05+20);
   pop();
 }
 

@@ -101,7 +101,7 @@ function draw() {
     strokeWeight(1.75);
     stroke(255, 204, 0);
     textSize(26)
-    text(" Move side to side: [Left] and [Right] aarow keys. \n Shoot Fire Balls: [Spacebar] \n Objective: Shoot fire balls and destroy the ghosts!", windowWidth/4, windowHeight/2+100);
+    text(" [Left] & [Right] arrow keys to move \n [A key] shoot fire \n [DOWN] arrow to stop \n Objective: Shoot fire balls and destroy the ghosts!", windowWidth/4, windowHeight/2+100);
     pop();
 
   }
@@ -123,7 +123,7 @@ function draw() {
     textSize(24);
     text("Score: " + score, 30, 50);
 
-    ellapsedTime = millis()/1000 - startTime;
+    ellapsedTi me = millis()/1000 - startTime;
     text("Time Ellapsed: " + floor(ellapsedTime), 30, 80);
     text(ghostHatch + ":" +ghostCounter, 30, 100);
     pop();
@@ -146,7 +146,7 @@ function draw() {
 
     }
 
-    // random Fireball hatching
+    //random Fireball hatching
     fireCounter++;
     if(fireCounter >= fireballHatch )
     {
@@ -285,6 +285,8 @@ function startGame()
 
 function keyPressed()
 {
+
+
   // if the right arrow was pressed
   if(keyCode == RIGHT_ARROW)
   {
@@ -297,10 +299,11 @@ function keyPressed()
   {
     // change pacman's direction property
     pacmanLeft1.direction = 'left';
-  }
-}
+    }
+
 
 function keyReleased() {
   pacmanCenter3.direction = "stopped";
 
+}
 }

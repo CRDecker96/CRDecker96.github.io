@@ -56,11 +56,12 @@ Pacman.prototype.display = function()
     this.speed = this.speed * 0.05;
   }
 
+
   // if pacman is just starting out and hasn't started moving yet
   if(this.direction == 'stopped')
   {
     image(pacmanCenter3, this.xpos, this.ypos);
-    this.speed = 4;
+    this.speed = 6;
   }
 
   // wrap pacman if pacman reaches the edge of the screen
