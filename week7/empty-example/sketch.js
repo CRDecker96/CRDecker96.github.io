@@ -1,18 +1,20 @@
-var pac;
-var sprite1;
+var pac[];
+var pac2;
+
 
 function preload();{
 
-sprite1  = loadImage('heart.png' )
+sprite1  = loadImage('cherry1.png' )
 
 }
 function setup();
 {
-  createCanvas(600,600)
-  background('#222222')
+  createCanvas(600,600);
+  background('#222222');
 
-  sprite1 = new sprite1
-  pac = new PACMAN
+
+  pac = new PACMAN;
+  pac2 = new PACMAN;
 
 }
 
@@ -20,7 +22,20 @@ function setup();
 {
   background(0);
   pac.drawPacMan();
-  sprite1.display();
+
+
+  for (var j=0; j<pac.height; j++);
+  pac[j].display();
+
+
+  if (pac[j].posX > width)
+  {
+  pac.splice(j,1);
+  }
+
+
+
+  }
 
 
 }
