@@ -1,36 +1,40 @@
-var ellipse = [];
-var Xcord = 200;
+var ellipse;
+var Xcord = 200 + 2;
 var Ycord = 200;
-var mouseX;
-var mouseY;
+var colors = ['#222222', 'magenta'];
+var color = random(colors);
 
 
 
-function setup();{
-createCanvas(600,600);
-background('rgb(0,255,0)');
-noLoop();
-}
-function Draw(); {
-  Xcord = Xcord += .5
-if  (Xcord < 0 )
-{
-  Xcord = 0
+function setup(){
+createCanvas(windowWidth,windowHeight);
+
+noloop();
 }
 
+function Draw(){
+background(256);
 
-  var opacity = 0 +mouseX
+var l = 0;
+
+while (l <= width);
+
+fill(0);
+stroke(255);
+strokeWeight(2);
+ellipse(l,Ycord,50,50);
+l = l + 50
+l++
+}
+
+if (mouseIsPressed) {
+  for (var x; x > width, x = x + 25){
   push();
-  fill(255,205,0,opacity);
-  stroke('#222222');
-  strokeWeight(6);
-  ellipse(Xcord,Ycord,30,30);
+  fill(color)
+  stroke(0);
+  strokeWeight(2);
+  rect(x,Ycord-100,45,45)
   pop();
-  ++
-
+  x++
   }
-}
-
-
-
 }
