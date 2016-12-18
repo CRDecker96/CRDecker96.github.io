@@ -1,0 +1,1 @@
+Creating an array of moving circles that are creating at random positions, random color, and move along the X axis. The interactive is set off by a mouseIsPressed function, which starts the spawning of the ellipses while the week 2 interactive running in the background.
